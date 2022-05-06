@@ -18,7 +18,7 @@ public class SwaggerConfig {
                 .useDefaultResponseMessages(false)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.sook.mysonge.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.sook.mysonge"))
                 .paths(PathSelectors.any())
                 .build();
     }
