@@ -1,8 +1,8 @@
 package com.sook.mysonge.web;
 
 import com.sook.mysonge.service.routine.RoutineService;
-import com.sook.mysonge.web.dto.RoutineSaveRequestDto;
-import com.sook.mysonge.web.dto.RoutineUpdateRequestDto;
+import com.sook.mysonge.web.dto.routine.RoutineSaveRequestDto;
+import com.sook.mysonge.web.dto.routine.RoutineUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,4 +27,6 @@ public class RoutineApiController {
         routineService.delete(id);
         return id;
     }
+
+
 }
