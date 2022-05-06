@@ -1,0 +1,27 @@
+package com.sook.mysonge.web.dto;
+
+import com.sook.mysonge.domain.calendar.Calendar;
+import lombok.Getter;
+
+import java.time.LocalDateTime;
+
+@Getter
+public class CalendarResponseDto {
+    private Long id;
+    private String title;
+    private String color;
+    private String context;
+    private String location;
+    private LocalDateTime start;
+    private LocalDateTime end;
+
+    public CalendarResponseDto(Calendar calendar) {
+        this.id = calendar.getId();
+        this.title = calendar.getTitle();
+        this.color = calendar.getColor();
+        this.context = calendar.getContext();
+        this.location = calendar.getLocation();
+        this.start = calendar.getStart();
+        this.end = calendar.getEnd();
+    }
+}
