@@ -1,4 +1,4 @@
-package com.sook.mysonge.web.dto;
+package com.sook.mysonge.web.dto.routine;
 
 import lombok.Builder;
 import lombok.Getter;

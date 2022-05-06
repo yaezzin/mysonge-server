@@ -2,9 +2,9 @@ package com.sook.mysonge.service.routine;
 
 import com.sook.mysonge.domain.routine.Routine;
 import com.sook.mysonge.domain.routine.RoutineRepository;
-import com.sook.mysonge.web.dto.RoutineResponseDto;
-import com.sook.mysonge.web.dto.RoutineSaveRequestDto;
-import com.sook.mysonge.web.dto.RoutineUpdateRequestDto;
+import com.sook.mysonge.web.dto.routine.RoutineResponseDto;
+import com.sook.mysonge.web.dto.routine.RoutineSaveRequestDto;
+import com.sook.mysonge.web.dto.routine.RoutineUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

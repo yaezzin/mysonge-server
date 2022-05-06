@@ -1,4 +1,4 @@
-package com.sook.mysonge.web.dto;
+package com.sook.mysonge.web.dto.calendar;
 
 import com.sook.mysonge.domain.calendar.Calendar;
 import lombok.Builder;

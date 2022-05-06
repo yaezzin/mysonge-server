@@ -2,8 +2,8 @@ package com.sook.mysonge.service.calendar;
 
 import com.sook.mysonge.domain.calendar.Calendar;
 import com.sook.mysonge.domain.calendar.CalendarRepository;
-import com.sook.mysonge.web.dto.CalendarSaveRequestDto;
-import com.sook.mysonge.web.dto.CalendarUpdateRequestDto;
+import com.sook.mysonge.web.dto.calendar.CalendarSaveRequestDto;
+import com.sook.mysonge.web.dto.calendar.CalendarUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

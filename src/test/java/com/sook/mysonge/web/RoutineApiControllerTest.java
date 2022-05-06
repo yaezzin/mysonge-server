@@ -2,7 +2,7 @@ package com.sook.mysonge.web;
 
 import com.sook.mysonge.domain.routine.Routine;
 import com.sook.mysonge.domain.routine.RoutineRepository;
-import com.sook.mysonge.web.dto.RoutineSaveRequestDto;
+import com.sook.mysonge.web.dto.routine.RoutineSaveRequestDto;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
