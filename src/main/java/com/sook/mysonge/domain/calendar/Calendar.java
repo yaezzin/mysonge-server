@@ -21,9 +21,9 @@ public class Calendar {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(fetch =FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private User user;
+//    @OneToOne(fetch =FetchType.LAZY)
+//    @JoinColumn(name = "user_id")
+//    private User user;
 
     private String title;
 
