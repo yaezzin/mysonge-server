@@ -4,7 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Getter
 @NoArgsConstructor
@@ -14,12 +14,12 @@ public class CalendarUpdateRequestDto {
     private String color;
     private String context;
     private String location;
-    private LocalDateTime start;
-    private LocalDateTime end;
+    private LocalDate start;
+    private LocalDate end;
 
     @Builder
     public CalendarUpdateRequestDto(String title, String color, String context,
-                                    String location, LocalDateTime start, LocalDateTime end) {
+                                    String location, LocalDate start, LocalDate end) {
         this.title = title;
         this.color = color;
         this.context = context;

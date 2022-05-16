@@ -14,7 +14,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
 import java.util.List;
 
 @Api(value = "Calendar Controller", tags = "Calendar")
@@ -32,10 +31,10 @@ public class CalendarApiController {
         return calendarRepository.findAll();
     }
 
-    @GetMapping("/calendar/{date}") //수정 예정..!!!
-    @ApiOperation(value = "오늘 일정 리스트 반환", notes = "오늘의 일정 조회 API by date")
-    public List<Calendar> getTodayEventsByDate(@PathVariable Date date) {
-        return calendarRepository.findBydate(date);
+    @GetMapping("/calendar/today")
+    @ApiOperation(value = "오늘의 일정 반환", notes = "오늘 일정 조회 API by date")
+    public List<Calendar> getEventsByDate() {
+        return calendarRepository.findBydate();
     }
 
     @PostMapping("/calendar")

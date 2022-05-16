@@ -5,11 +5,10 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
-import java.util.Date;
+import java.time.LocalDate;
+
 
 @Entity
 @Getter
@@ -25,25 +24,26 @@ public class Calendar {
 //    @JoinColumn(name = "user_id")
 //    private User user;
 
+    @Column(nullable = false)
     private String title;
 
+    @Column(nullable = false)
     private String color;
 
+    @Column(nullable = false)
     private String location;
 
     private String context;
 
-    private Date date; // 요일 수정 예정..
+    @Column(nullable = false)
+    private LocalDate start;
 
-    @DateTimeFormat(pattern = "yyyy-mm-dd")
-    private LocalDateTime start;
-
-    @DateTimeFormat(pattern = "yyyy-mm-dd")
-    private LocalDateTime end;
+    @Column(nullable = false)
+    private LocalDate end;
 
     @Builder
     public Calendar(Long id, String title, String color, String location,
-                    String context, LocalDateTime start, LocalDateTime end) {
+                    String context, LocalDate start, LocalDate end) {
 
         this.id = id;
         this.title = title;
@@ -55,7 +55,7 @@ public class Calendar {
     }
 
     public void update(String title, String color, String location,
-                       String context, LocalDateTime start, LocalDateTime end) {
+                       String context, LocalDate start, LocalDate end) {
 
         this.title = title;
         this.color = color;
