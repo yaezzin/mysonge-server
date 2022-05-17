@@ -17,9 +17,9 @@ public class Character {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    @OneToOne(fetch =FetchType.LAZY)
-//    @JoinColumn(name = "user_id",  referencedColumnName = "id")
-//    private User user;
+    @OneToOne(fetch =FetchType.LAZY)
+    @JoinColumn(name = "user_id",  referencedColumnName = "id")
+    private User user;
 
     @Column(nullable = false)
     private String name;
