@@ -5,17 +5,19 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalTime;
+
 @Getter
 @NoArgsConstructor
 public class RoutineSaveRequestDto {
     private String name;
     private String routineRepeat;
-    private String routineTime;
+    private LocalTime routineTime;
     private String context;
     private Boolean achieve;
 
     @Builder
-    public RoutineSaveRequestDto(String name, String routineRepeat, String routineTime, String context, Boolean achieve){
+    public RoutineSaveRequestDto(String name, String routineRepeat, LocalTime routineTime, String context, Boolean achieve){
         this.name = name;
         this.routineRepeat = routineRepeat;
         this.routineTime = routineTime;

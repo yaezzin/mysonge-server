@@ -1,5 +1,6 @@
 package com.sook.mysonge.domain.character;
 
+import com.sook.mysonge.domain.user.User;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,7 +18,7 @@ public class Character {
     private Long id;
 
 //    @OneToOne(fetch =FetchType.LAZY)
-//    @JoinColumn(name = "user_id")
+//    @JoinColumn(name = "user_id",  referencedColumnName = "id")
 //    private User user;
 
     @Column(nullable = false)

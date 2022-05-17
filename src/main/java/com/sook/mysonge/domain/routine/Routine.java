@@ -7,7 +7,8 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
-import java.util.List;
+import java.time.LocalTime;
+import java.util.*;
 
 @Getter
 @NoArgsConstructor
@@ -18,20 +19,18 @@ public class Routine {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    @ManyToOne
-//    @JoinColumn(name = "user_id")
-//    private User user;
+    @OneToOne(fetch =FetchType.LAZY)
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
 
     @Column(nullable = false)
     private String name;
 
-    // ERD에는 JSON - 바꿔야하나..?
     @Column(nullable = false)
-    private String routineRepeat;
+    private String routineRepeat ;
 
-    // ERD에는 TIME
     @Column(nullable = false)
-    private String routineTime;
+    private LocalTime routineTime;
 
     @Column
     private String context;
@@ -41,15 +40,16 @@ public class Routine {
     private Boolean achieve;
 
     @Builder
-    public Routine(String name, String routineRepeat, String routineTime, String context, Boolean achieve){
+    public Routine(String name, String routineRepeat, LocalTime routineTime, String context, Boolean achieve, User user){
         this.name = name;
         this.routineRepeat = routineRepeat;
         this.routineTime = routineTime;
         this.context = context;
         this.achieve = achieve;
+        this.user = user;
     }
 
-    public void update(String name, String routineRepeat, String routineTime, String context, Boolean achieve){
+    public void update(String name, String routineRepeat, LocalTime routineTime, String context, Boolean achieve){
         this.name = name;
         this.routineRepeat = routineRepeat;
         this.routineTime = routineTime;
