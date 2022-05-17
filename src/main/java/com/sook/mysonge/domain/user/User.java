@@ -1,5 +1,6 @@
 package com.sook.mysonge.domain.user;
 
+import com.sook.mysonge.domain.character.Character;
 import com.sook.mysonge.domain.calendar.Calendar;
 import com.sook.mysonge.domain.routine.Routine;
 import lombok.Builder;
@@ -32,8 +33,8 @@ public class User {
     @OneToOne(mappedBy = "user")
     private Calendar calendar;
 
-//    @OneToOne(mappedBy = "user")
-//    private Character character;
+    @OneToOne(mappedBy = "user")
+    private Character character;
 
     @Builder
     public User(String name, String email, String birthday){
