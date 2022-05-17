@@ -3,12 +3,14 @@ package com.sook.mysonge.web.dto.routine;
 import com.sook.mysonge.domain.routine.Routine;
 import lombok.Getter;
 
+import java.time.LocalTime;
+
 @Getter
 public class RoutineResponseDto {
     private Long id;
     private String name;
     private String routineRepeat;
-    private String routineTime;
+    private LocalTime routineTime;
     private String context;
     private Boolean achieve;
 
