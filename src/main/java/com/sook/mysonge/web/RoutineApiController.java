@@ -1,6 +1,7 @@
 package com.sook.mysonge.web;
 
 import com.sook.mysonge.service.routine.RoutineService;
+import com.sook.mysonge.web.dto.routine.RoutineAchieveUpdateRequestDto;
 import com.sook.mysonge.web.dto.routine.RoutineSaveRequestDto;
 import com.sook.mysonge.web.dto.routine.RoutineUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +21,11 @@ public class RoutineApiController {
     @PutMapping("/routine/{id}")
     public Long update(@PathVariable Long id, @RequestBody RoutineUpdateRequestDto requestDto){
         return routineService.update(id, requestDto);
+    }
+
+    @PutMapping("/routine/achieve/{id}")
+    public Long achieve(@PathVariable Long id, @RequestBody RoutineAchieveUpdateRequestDto requestDto){
+        return routineService.achievement(id, requestDto);
     }
 
     @DeleteMapping("/routine/{id}")

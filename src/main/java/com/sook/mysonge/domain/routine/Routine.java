@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalTime;
@@ -26,11 +28,37 @@ public class Routine {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
-    private String routineRepeat ;
+    @Column
+    @ColumnDefault("false")
+    private Boolean sunday;
+
+    @Column
+    @ColumnDefault("false")
+    private Boolean monday;
+
+    @Column
+    @ColumnDefault("false")
+    private Boolean tuesday;
+
+    @Column
+    @ColumnDefault("false")
+    private Boolean wednesday;
+
+    @Column
+    @ColumnDefault("false")
+    private Boolean thursday;
+
+    @Column
+    @ColumnDefault("false")
+    private Boolean friday;
+
+    @Column
+    @ColumnDefault("false")
+    private Boolean saturday;
 
     @Column(nullable = false)
-    private LocalTime routineTime;
+    //@DateTimeFormat(pattern = "HH:mm")
+    private String routineTime;
 
     @Column
     private String context;
@@ -40,20 +68,37 @@ public class Routine {
     private Boolean achieve;
 
     @Builder
-    public Routine(String name, String routineRepeat, LocalTime routineTime, String context, Boolean achieve, User user){
+    public Routine(String name, Boolean sunday, Boolean monday, Boolean tuesday, Boolean wednesday, Boolean thursday, Boolean friday, Boolean saturday, String routineTime, String context, Boolean achieve, User user){
         this.name = name;
-        this.routineRepeat = routineRepeat;
+        this.sunday = sunday;
+        this.monday = monday;
+        this.tuesday = tuesday;
+        this.wednesday = wednesday;
+        this.thursday = thursday;
+        this.friday = friday;
+        this.saturday = saturday;
         this.routineTime = routineTime;
         this.context = context;
         this.achieve = achieve;
         this.user = user;
     }
 
-    public void update(String name, String routineRepeat, LocalTime routineTime, String context, Boolean achieve){
+    // 루틴 내용 수정
+    public void update(String name, Boolean sunday, Boolean monday, Boolean tuesday, Boolean wednesday, Boolean thursday, Boolean friday, Boolean saturday, String routineTime, String context){
         this.name = name;
-        this.routineRepeat = routineRepeat;
+        this.sunday = sunday;
+        this.monday = monday;
+        this.tuesday = tuesday;
+        this.wednesday = wednesday;
+        this.thursday = thursday;
+        this.friday = friday;
+        this.saturday = saturday;
         this.routineTime = routineTime;
         this.context = context;
+    }
+
+    // 루틴 수행 여부 수정
+    public void achievement(Boolean achieve){
         this.achieve = achieve;
     }
 }

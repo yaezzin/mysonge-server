@@ -10,17 +10,27 @@ import java.time.LocalTime;
 @NoArgsConstructor
 public class RoutineUpdateRequestDto {
     private String name;
-    private String routineRepeat;
-    private LocalTime routineTime;
+    private Boolean sunday;
+    private Boolean monday;
+    private Boolean tuesday;
+    private Boolean wednesday;
+    private Boolean thursday;
+    private Boolean friday;
+    private Boolean saturday;
+    private String routineTime;
     private String context;
-    private Boolean achieve;
 
     @Builder
-    public RoutineUpdateRequestDto(String name, String routineRepeat, LocalTime routineTime, String context, Boolean achieve){
+    public RoutineUpdateRequestDto(String name, Boolean sunday, Boolean monday, Boolean tuesday, Boolean wednesday, Boolean thursday, Boolean friday, Boolean saturday, String routineTime, String context){
         this.name = name;
-        this.routineRepeat = routineRepeat;
+        this.sunday = sunday;
+        this.monday = monday;
+        this.tuesday = tuesday;
+        this.wednesday = wednesday;
+        this.thursday = thursday;
+        this.friday = friday;
+        this.saturday = saturday;
         this.routineTime = routineTime;
         this.context = context;
-        this.achieve = achieve;
     }
 }
