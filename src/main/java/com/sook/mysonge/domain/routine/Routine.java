@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
 
 import javax.persistence.*;
 import java.time.LocalTime;
@@ -26,8 +27,33 @@ public class Routine {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
-    private String routineRepeat ;
+    @Column
+    @ColumnDefault("false")
+    private Boolean Sunday;
+
+    @Column
+    @ColumnDefault("false")
+    private Boolean Monday;
+
+    @Column
+    @ColumnDefault("false")
+    private Boolean Tuesday;
+
+    @Column
+    @ColumnDefault("false")
+    private Boolean Wednesday;
+
+    @Column
+    @ColumnDefault("false")
+    private Boolean Thursday;
+
+    @Column
+    @ColumnDefault("false")
+    private Boolean Friday;
+
+    @Column
+    @ColumnDefault("false")
+    private Boolean Saturday;
 
     @Column(nullable = false)
     private LocalTime routineTime;
@@ -40,20 +66,37 @@ public class Routine {
     private Boolean achieve;
 
     @Builder
-    public Routine(String name, String routineRepeat, LocalTime routineTime, String context, Boolean achieve, User user){
+    public Routine(String name, Boolean Sunday, Boolean Monday, Boolean Tuesday, Boolean Wednesday, Boolean Thursday, Boolean Friday, Boolean Saturday, LocalTime routineTime, String context, Boolean achieve, User user){
         this.name = name;
-        this.routineRepeat = routineRepeat;
+        this.Sunday = Sunday;
+        this.Monday = Monday;
+        this.Tuesday = Tuesday;
+        this.Wednesday = Wednesday;
+        this.Thursday = Thursday;
+        this.Friday = Friday;
+        this.Saturday = Saturday;
         this.routineTime = routineTime;
         this.context = context;
         this.achieve = achieve;
         this.user = user;
     }
 
-    public void update(String name, String routineRepeat, LocalTime routineTime, String context, Boolean achieve){
+    // 루틴 내용 수정
+    public void update(String name, Boolean Sunday, Boolean Monday, Boolean Tuesday, Boolean Wednesday, Boolean Thursday, Boolean Friday, Boolean Saturday, LocalTime routineTime, String context){
         this.name = name;
-        this.routineRepeat = routineRepeat;
+        this.Sunday = Sunday;
+        this.Monday = Monday;
+        this.Tuesday = Tuesday;
+        this.Wednesday = Wednesday;
+        this.Thursday = Thursday;
+        this.Friday = Friday;
+        this.Saturday = Saturday;
         this.routineTime = routineTime;
         this.context = context;
+    }
+
+    // 루틴 수행 여부 수정
+    public void achievement(Boolean achieve){
         this.achieve = achieve;
     }
 }

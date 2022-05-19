@@ -2,6 +2,7 @@ package com.sook.mysonge.service.routine;
 
 import com.sook.mysonge.domain.routine.Routine;
 import com.sook.mysonge.domain.routine.RoutineRepository;
+import com.sook.mysonge.web.dto.routine.RoutineAchieveUpdateRequestDto;
 import com.sook.mysonge.web.dto.routine.RoutineResponseDto;
 import com.sook.mysonge.web.dto.routine.RoutineSaveRequestDto;
 import com.sook.mysonge.web.dto.routine.RoutineUpdateRequestDto;
@@ -25,7 +26,17 @@ public class RoutineService {
         Routine routine = routineRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("해당 루틴 없음. id = " + id));
 
-        routine.update(requestDto.getName(), requestDto.getRoutineRepeat(), requestDto.getRoutineTime(), requestDto.getContext(), requestDto.getAchieve());
+        routine.update(requestDto.getName(), requestDto.getSunday(),requestDto.getMonday(), requestDto.getTuesday(), requestDto.getWednesday(), requestDto.getThursday(), requestDto.getFriday(), requestDto.getSaturday(), requestDto.getRoutineTime(), requestDto.getContext());
+
+        return id;
+    }
+
+    @Transactional
+    public Long achievement(Long id, RoutineAchieveUpdateRequestDto requestDto){
+        Routine routine = routineRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("해당 루틴 없음. id = " + id));
+
+        routine.achievement(requestDto.getAchieve());
 
         return id;
     }
