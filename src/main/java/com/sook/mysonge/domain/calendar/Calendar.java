@@ -1,13 +1,16 @@
 package com.sook.mysonge.domain.calendar;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.sook.mysonge.domain.user.User;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 
 @Entity
@@ -36,14 +39,17 @@ public class Calendar {
     private String context;
 
     @Column(nullable = false)
-    private LocalDate start;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime start;
+
 
     @Column(nullable = false)
-    private LocalDate end;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime end;
 
     @Builder
     public Calendar(Long id, String title, String color, String location,
-                    String context, LocalDate start, LocalDate end, User user) {
+                    String context, LocalDateTime start, LocalDateTime end, User user) {
 
         this.id = id;
         this.title = title;
@@ -56,7 +62,7 @@ public class Calendar {
     }
 
     public void update(String title, String color, String location,
-                       String context, LocalDate start, LocalDate end) {
+                       String context, LocalDateTime start, LocalDateTime end) {
 
         this.title = title;
         this.color = color;

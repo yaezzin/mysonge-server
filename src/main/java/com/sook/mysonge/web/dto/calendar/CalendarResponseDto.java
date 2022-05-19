@@ -4,6 +4,7 @@ import com.sook.mysonge.domain.calendar.Calendar;
 import lombok.Getter;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter
 public class CalendarResponseDto {
@@ -12,8 +13,8 @@ public class CalendarResponseDto {
     private String color;
     private String context;
     private String location;
-    private LocalDate start;
-    private LocalDate end;
+    private LocalDateTime start;
+    private LocalDateTime end;
 
     public CalendarResponseDto(Calendar calendar) {
         this.id = calendar.getId();
