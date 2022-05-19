@@ -16,7 +16,7 @@ public class RoutineResponseDto {
     private Boolean Thursday;
     private Boolean Friday;
     private Boolean Saturday;
-    private LocalTime routineTime;
+    private String routineTime;
     private String context;
     private Boolean achieve;
 

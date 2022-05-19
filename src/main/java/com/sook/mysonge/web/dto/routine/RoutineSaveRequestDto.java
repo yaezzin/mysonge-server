@@ -11,27 +11,27 @@ import java.time.LocalTime;
 @NoArgsConstructor
 public class RoutineSaveRequestDto {
     private String name;
-    private Boolean Sunday;
-    private Boolean Monday;
-    private Boolean Tuesday;
-    private Boolean Wednesday;
-    private Boolean Thursday;
-    private Boolean Friday;
-    private Boolean Saturday;
-    private LocalTime routineTime;
+    private Boolean sunday;
+    private Boolean monday;
+    private Boolean tuesday;
+    private Boolean wednesday;
+    private Boolean thursday;
+    private Boolean friday;
+    private Boolean saturday;
+    private String routineTime;
     private String context;
     private Boolean achieve;
 
     @Builder
-    public RoutineSaveRequestDto(String name, Boolean Sunday, Boolean Monday, Boolean Tuesday, Boolean Wednesday, Boolean Thursday, Boolean Friday, Boolean Saturday, LocalTime routineTime, String context, Boolean achieve){
+    public RoutineSaveRequestDto(String name, Boolean sunday, Boolean monday, Boolean tuesday, Boolean wednesday, Boolean thursday, Boolean friday, Boolean saturday, String routineTime, String context, Boolean achieve){
         this.name = name;
-        this.Sunday = Sunday;
-        this.Monday = Monday;
-        this.Tuesday = Tuesday;
-        this.Wednesday = Wednesday;
-        this.Thursday = Thursday;
-        this.Friday = Friday;
-        this.Saturday = Saturday;
+        this.sunday = sunday;
+        this.monday = monday;
+        this.tuesday = tuesday;
+        this.wednesday = wednesday;
+        this.thursday = thursday;
+        this.friday = friday;
+        this.saturday = saturday;
         this.routineTime = routineTime;
         this.context = context;
         this.achieve = achieve;
@@ -40,13 +40,13 @@ public class RoutineSaveRequestDto {
     public Routine toEntity(){
         return Routine.builder()
                 .name(name)
-                .Sunday(Sunday)
-                .Monday(Monday)
-                .Tuesday(Tuesday)
-                .Wednesday(Wednesday)
-                .Thursday(Thursday)
-                .Friday(Friday)
-                .Saturday(Saturday)
+                .sunday(sunday)
+                .monday(monday)
+                .tuesday(tuesday)
+                .wednesday(wednesday)
+                .thursday(thursday)
+                .friday(friday)
+                .saturday(saturday)
                 .routineTime(routineTime)
                 .context(context)
                 .achieve(achieve)

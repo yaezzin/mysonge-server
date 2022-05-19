@@ -10,26 +10,26 @@ import java.time.LocalTime;
 @NoArgsConstructor
 public class RoutineUpdateRequestDto {
     private String name;
-    private Boolean Sunday;
-    private Boolean Monday;
-    private Boolean Tuesday;
-    private Boolean Wednesday;
-    private Boolean Thursday;
-    private Boolean Friday;
-    private Boolean Saturday;
-    private LocalTime routineTime;
+    private Boolean sunday;
+    private Boolean monday;
+    private Boolean tuesday;
+    private Boolean wednesday;
+    private Boolean thursday;
+    private Boolean friday;
+    private Boolean saturday;
+    private String routineTime;
     private String context;
 
     @Builder
-    public RoutineUpdateRequestDto(String name, Boolean Sunday, Boolean Monday, Boolean Tuesday, Boolean Wednesday, Boolean Thursday, Boolean Friday, Boolean Saturday, LocalTime routineTime, String context){
+    public RoutineUpdateRequestDto(String name, Boolean sunday, Boolean monday, Boolean tuesday, Boolean wednesday, Boolean thursday, Boolean friday, Boolean saturday, String routineTime, String context){
         this.name = name;
-        this.Sunday = Sunday;
-        this.Monday = Monday;
-        this.Tuesday = Tuesday;
-        this.Wednesday = Wednesday;
-        this.Thursday = Thursday;
-        this.Friday = Friday;
-        this.Saturday = Saturday;
+        this.sunday = sunday;
+        this.monday = monday;
+        this.tuesday = tuesday;
+        this.wednesday = wednesday;
+        this.thursday = thursday;
+        this.friday = friday;
+        this.saturday = saturday;
         this.routineTime = routineTime;
         this.context = context;
     }
