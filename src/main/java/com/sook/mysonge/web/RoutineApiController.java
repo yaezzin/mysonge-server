@@ -1,11 +1,14 @@
 package com.sook.mysonge.web;
 
+import com.sook.mysonge.domain.routine.Routine;
 import com.sook.mysonge.service.routine.RoutineService;
 import com.sook.mysonge.web.dto.routine.RoutineAchieveUpdateRequestDto;
 import com.sook.mysonge.web.dto.routine.RoutineSaveRequestDto;
 import com.sook.mysonge.web.dto.routine.RoutineUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
@@ -33,6 +36,18 @@ public class RoutineApiController {
         routineService.delete(id);
         return id;
     }
+    @GetMapping("/routine/today")
+    public List<Routine> getTodayRoutine() {
+        List<Routine> byDate = routineService.findByDayOfWeek();
+        return byDate;
+    }
 
+    @GetMapping("/routine/achieve")
+    public String getAcheive() {
+        String achievePer = routineService.findAchievePer();
+        return achievePer;
+    }
 
 }
+
+

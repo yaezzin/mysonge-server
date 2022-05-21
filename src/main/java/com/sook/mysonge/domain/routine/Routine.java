@@ -29,32 +29,25 @@ public class Routine {
     private String name;
 
     @Column
-    @ColumnDefault("false")
-    private Boolean sunday;
+    private int sunday;
 
     @Column
-    @ColumnDefault("false")
-    private Boolean monday;
+    private int monday;
 
     @Column
-    @ColumnDefault("false")
-    private Boolean tuesday;
+    private int tuesday;
 
     @Column
-    @ColumnDefault("false")
-    private Boolean wednesday;
+    private int wednesday;
 
     @Column
-    @ColumnDefault("false")
-    private Boolean thursday;
+    private int thursday;
 
     @Column
-    @ColumnDefault("false")
-    private Boolean friday;
+    private int friday;
 
     @Column
-    @ColumnDefault("false")
-    private Boolean saturday;
+    private int saturday;
 
     @Column(nullable = false)
     //@DateTimeFormat(pattern = "HH:mm")
@@ -68,7 +61,8 @@ public class Routine {
     private Boolean achieve;
 
     @Builder
-    public Routine(String name, Boolean sunday, Boolean monday, Boolean tuesday, Boolean wednesday, Boolean thursday, Boolean friday, Boolean saturday, String routineTime, String context, Boolean achieve, User user){
+    public Routine(String name, int sunday, int monday, int tuesday, int wednesday, int thursday, int friday,
+                   int saturday, String routineTime, String context, Boolean achieve, User user){
         this.name = name;
         this.sunday = sunday;
         this.monday = monday;
@@ -84,7 +78,8 @@ public class Routine {
     }
 
     // 루틴 내용 수정
-    public void update(String name, Boolean sunday, Boolean monday, Boolean tuesday, Boolean wednesday, Boolean thursday, Boolean friday, Boolean saturday, String routineTime, String context){
+    public void update(String name, int sunday, int monday, int tuesday, int wednesday, int thursday, int friday,
+                       int saturday, String routineTime, String context){
         this.name = name;
         this.sunday = sunday;
         this.monday = monday;
