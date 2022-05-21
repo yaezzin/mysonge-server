@@ -8,7 +8,6 @@ import java.time.LocalDateTime;
 
 @Getter
 public class CalendarResponseDto {
-    private Long id;
     private String title;
     private String color;
     private String context;
@@ -17,7 +16,6 @@ public class CalendarResponseDto {
     private LocalDateTime end;
 
     public CalendarResponseDto(Calendar calendar) {
-        this.id = calendar.getId();
         this.title = calendar.getTitle();
         this.color = calendar.getColor();
         this.context = calendar.getContext();

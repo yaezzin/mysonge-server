@@ -3,6 +3,7 @@ package com.sook.mysonge.web;
 import com.sook.mysonge.domain.calendar.Calendar;
 import com.sook.mysonge.domain.calendar.CalendarRepository;
 import com.sook.mysonge.service.calendar.CalendarService;
+import com.sook.mysonge.web.dto.calendar.CalendarResponseDto;
 import com.sook.mysonge.web.dto.calendar.CalendarSaveRequestDto;
 import com.sook.mysonge.web.dto.calendar.CalendarUpdateRequestDto;
 import io.swagger.annotations.Api;
@@ -39,14 +40,14 @@ public class CalendarApiController {
 
     @PostMapping("/calendar")
     @ApiOperation(value = "일정 등록", notes = "캘린더 등록 API")
-    public ResponseEntity<Calendar> saveEvent(@RequestBody CalendarSaveRequestDto requestDto){
-        Calendar result = calendarService.save(requestDto);
-        return new ResponseEntity<>(result, HttpStatus.OK);
+    public CalendarResponseDto saveEvent(@RequestBody CalendarSaveRequestDto requestDto){
+        CalendarResponseDto result = calendarService.save(requestDto);
+        return result;
     }
 
     @PutMapping("/calendar/{id}")
     @ApiOperation(value = "일정 수정", notes = "캘린더 수정 API")
-    public Calendar updateEvent(@ApiParam(value = "캘린더 id", required = true)
+    public CalendarResponseDto updateEvent(@ApiParam(value = "캘린더 id", required = true)
                                 @PathVariable Long id, @RequestBody CalendarUpdateRequestDto requestDto) {
         return calendarService.update(id, requestDto);
     }

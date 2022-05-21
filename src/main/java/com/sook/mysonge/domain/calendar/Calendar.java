@@ -48,10 +48,9 @@ public class Calendar {
     private LocalDateTime end;
 
     @Builder
-    public Calendar(Long id, String title, String color, String location,
+    public Calendar(String title, String color, String location,
                     String context, LocalDateTime start, LocalDateTime end, User user) {
 
-        this.id = id;
         this.title = title;
         this.color = color;
         this.location = location;

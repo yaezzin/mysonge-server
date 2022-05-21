@@ -11,7 +11,6 @@ import java.time.LocalDateTime;
 @Getter
 @NoArgsConstructor
 public class CalendarSaveRequestDto {
-    private Long id;
     private String title;
     private String color;
     private String context;
@@ -32,7 +31,6 @@ public class CalendarSaveRequestDto {
 
     public Calendar toEntity() {
         Calendar calendar = Calendar.builder()
-                .id(id)
                 .title(title)
                 .color(color)
                 .location(location)
