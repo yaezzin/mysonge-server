@@ -5,6 +5,7 @@ import lombok.Getter;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Getter
 public class CalendarResponseDto {
@@ -12,15 +13,19 @@ public class CalendarResponseDto {
     private String color;
     private String context;
     private String location;
-    private LocalDateTime start;
-    private LocalDateTime end;
+    private LocalDate startYmd;
+    private LocalDate endYmd;
+    private LocalTime startHms;
+    private LocalTime endHms;
 
     public CalendarResponseDto(Calendar calendar) {
         this.title = calendar.getTitle();
         this.color = calendar.getColor();
         this.context = calendar.getContext();
         this.location = calendar.getLocation();
-        this.start = calendar.getStart();
-        this.end = calendar.getEnd();
+        this.startYmd = startYmd;
+        this.endYmd = endYmd;
+        this.startHms = startHms;
+        this.endHms = endHms;
     }
 }
