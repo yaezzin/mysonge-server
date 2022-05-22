@@ -17,12 +17,12 @@ public class RoutineUpdateRequestDto {
     private int thursday;
     private int friday;
     private int saturday;
-    private String routineTime;
+    private LocalTime routineTime;
     private String context;
 
     @Builder
     public RoutineUpdateRequestDto(String name, int sunday, int monday, int tuesday, int wednesday, int thursday, int friday,
-                                   int saturday, String routineTime, String context){
+                                   int saturday, LocalTime routineTime, String context){
         this.name = name;
         this.sunday = sunday;
         this.monday = monday;
