@@ -2,6 +2,7 @@ package com.sook.mysonge.web;
 
 import com.sook.mysonge.domain.calendar.Calendar;
 import com.sook.mysonge.domain.calendar.CalendarRepository;
+import com.sook.mysonge.domain.user.User;
 import com.sook.mysonge.service.calendar.CalendarService;
 import com.sook.mysonge.web.dto.calendar.CalendarResponseDto;
 import com.sook.mysonge.web.dto.calendar.CalendarSaveRequestDto;
@@ -57,5 +58,10 @@ public class CalendarApiController {
     public Long deleteEvent(@ApiParam(value = "캘린더 id", required = true) @PathVariable Long id) {
         calendarService.delete(id);
         return id;
+    }
+
+    @GetMapping("/all/calendars")
+    public List<Calendar> getAllCalendar(){
+        return calendarRepository.findAll();
     }
 }

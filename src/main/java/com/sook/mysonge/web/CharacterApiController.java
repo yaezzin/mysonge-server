@@ -1,5 +1,8 @@
 package com.sook.mysonge.web;
 
+import com.sook.mysonge.domain.character.Character;
+import com.sook.mysonge.domain.character.CharacterRepository;
+import com.sook.mysonge.domain.user.User;
 import com.sook.mysonge.service.character.CharacterService;
 import com.sook.mysonge.web.dto.character.CharacterResponseDto;
 import com.sook.mysonge.web.dto.character.CharacterSaveRequestDto;
@@ -10,6 +13,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Api(value = "Character Controller", tags = "Character")
 @RestController
 @RequiredArgsConstructor
@@ -17,6 +22,7 @@ import org.springframework.web.bind.annotation.*;
 public class CharacterApiController {
 
     private final CharacterService characterService;
+    private final CharacterRepository characterRepository;
 
     @ApiOperation(value = "캐릭터 조회", notes = "캐릭터 조회 API")
     @GetMapping("/character/{id}")
@@ -36,4 +42,8 @@ public class CharacterApiController {
         return characterService.update(id, requestDto);
     }
 
+    @GetMapping("/all/characters")
+    public List<Character> getAllCharacters(){
+        return characterRepository.findAll();
+    }
 }

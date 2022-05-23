@@ -10,6 +10,7 @@ import java.util.Date;
 
 @Getter
 public class CalendarResponseDto {
+    private Long id;
     private String title;
     private String color;
     private String context;
@@ -20,6 +21,7 @@ public class CalendarResponseDto {
     private LocalTime endHms;
 
     public CalendarResponseDto(Calendar calendar) {
+        this.id = calendar.getId();
         this.title = calendar.getTitle();
         this.color = calendar.getColor();
         this.context = calendar.getContext();

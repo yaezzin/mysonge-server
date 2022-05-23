@@ -18,13 +18,13 @@ public class RoutineSaveRequestDto {
     private int thursday;
     private int friday;
     private int saturday;
-    private String routineTime;
+    private LocalTime routineTime;
     private String context;
     private Boolean achieve;
 
     @Builder
     public RoutineSaveRequestDto(String name, int sunday, int monday, int tuesday, int wednesday, int thursday, int friday,
-                                 int saturday, String routineTime, String context, Boolean achieve){
+                                 int saturday, LocalTime routineTime, String context, Boolean achieve){
         this.name = name;
         this.sunday = sunday;
         this.monday = monday;

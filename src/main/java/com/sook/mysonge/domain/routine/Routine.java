@@ -50,8 +50,8 @@ public class Routine {
     private int saturday;
 
     @Column(nullable = false)
-    //@DateTimeFormat(pattern = "HH:mm")
-    private String routineTime;
+    @DateTimeFormat(pattern = "HH:mm")
+    private LocalTime routineTime;
 
     @Column
     private String context;
@@ -62,7 +62,7 @@ public class Routine {
 
     @Builder
     public Routine(String name, int sunday, int monday, int tuesday, int wednesday, int thursday, int friday,
-                   int saturday, String routineTime, String context, Boolean achieve, User user){
+                   int saturday, LocalTime routineTime, String context, Boolean achieve, User user){
         this.name = name;
         this.sunday = sunday;
         this.monday = monday;
@@ -79,7 +79,7 @@ public class Routine {
 
     // 루틴 내용 수정
     public void update(String name, int sunday, int monday, int tuesday, int wednesday, int thursday, int friday,
-                       int saturday, String routineTime, String context){
+                       int saturday, LocalTime routineTime, String context){
         this.name = name;
         this.sunday = sunday;
         this.monday = monday;

@@ -16,11 +16,12 @@ public class RoutineResponseDto {
     private int Thursday;
     private int Friday;
     private int Saturday;
-    private String routineTime;
+    private LocalTime routineTime;
     private String context;
     private Boolean achieve;
 
     public RoutineResponseDto(Routine entity){
+        this.id = entity.getId();
         this.name = entity.getName();
         this.Sunday = entity.getSunday();
         this.Monday = entity.getMonday();
