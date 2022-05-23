@@ -1,6 +1,8 @@
 package com.sook.mysonge.web;
 
 import com.sook.mysonge.domain.routine.Routine;
+import com.sook.mysonge.domain.routine.RoutineRepository;
+import com.sook.mysonge.domain.user.User;
 import com.sook.mysonge.service.routine.RoutineService;
 import com.sook.mysonge.web.dto.routine.RoutineAchieveUpdateRequestDto;
 import com.sook.mysonge.web.dto.routine.RoutineSaveRequestDto;
@@ -15,6 +17,7 @@ import java.util.List;
 public class RoutineApiController {
 
     private final RoutineService routineService;
+    private final RoutineRepository routineRepository;
 
     @PostMapping("/routine")
     public Long save(@RequestBody RoutineSaveRequestDto requestDto){
@@ -48,6 +51,10 @@ public class RoutineApiController {
         return achievePer;
     }
 
+    @GetMapping("/all/routines")
+    public List<Routine> getAllRoutines(){
+        return routineRepository.findAll();
+    }
 }
 
 

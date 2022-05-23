@@ -21,6 +21,7 @@ public class RoutineResponseDto {
     private Boolean achieve;
 
     public RoutineResponseDto(Routine entity){
+        this.id = entity.getId();
         this.name = entity.getName();
         this.Sunday = entity.getSunday();
         this.Monday = entity.getMonday();
