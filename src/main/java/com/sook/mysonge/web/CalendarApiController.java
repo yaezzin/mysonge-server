@@ -12,10 +12,12 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Api(value = "Calendar Controller", tags = "Calendar")
@@ -37,6 +39,13 @@ public class CalendarApiController {
     @ApiOperation(value = "오늘의 일정 반환", notes = "오늘 일정 조회 API by date")
     public List<Calendar> getEventsByDate() {
         return calendarRepository.findBydate();
+    }
+
+    // 1, 2, 3.. 을 클릭하면 일정 반환하도록
+    @GetMapping("/calendar/{startYmd}")
+    @ApiOperation(value = "날짜로 일정 조회", notes = "해당 날짜의 일정 조회 API")
+    public List<Calendar> getEventsByBeginDate(@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate startYmd) {
+        return calendarService.getAllByStartYmd(startYmd);
     }
 
     @PostMapping("/calendar")

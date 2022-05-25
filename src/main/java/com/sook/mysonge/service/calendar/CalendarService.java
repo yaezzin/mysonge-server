@@ -9,6 +9,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class CalendarService {
@@ -31,6 +34,10 @@ public class CalendarService {
     public void delete(Long id) {
         Calendar calendar = calendarRepository.findById(id).orElseThrow(() -> new IllegalArgumentException());
         calendarRepository.delete(calendar);
+    }
+
+    public List<Calendar> getAllByStartYmd(LocalDate startYmd) {
+        return calendarRepository.findAllByStartYmd(startYmd);
     }
 
 }

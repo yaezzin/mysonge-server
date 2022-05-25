@@ -43,11 +43,11 @@ public class Calendar {
     private String context;
 
     @Column(nullable = false)
-    @JsonFormat(pattern = "yyyy-mm-dd")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate startYmd; // 시작의 년, 월, 일
 
     @Column(nullable = false)
-    @JsonFormat(pattern = "yyyy-mm-dd")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate endYmd; // 종료의 년, 월, 일
 
     @Column(nullable = false)
