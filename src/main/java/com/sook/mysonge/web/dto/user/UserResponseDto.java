@@ -8,12 +8,12 @@ public class UserResponseDto {
     private Long id;
     private String name;
     private String email;
-    private String birthday;
+    private String password;
 
     public UserResponseDto(User entity){
         this.id = entity.getId();
         this.name = entity.getName();
         this.email = entity.getEmail();
-        this.birthday = entity.getBirthday();
+        this.password = entity.getPassword();
     }
 }

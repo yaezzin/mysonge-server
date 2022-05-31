@@ -24,8 +24,8 @@ public class User {
     @Column(nullable = false)
     private String email;
 
-    @Column
-    private String birthday;
+    @Column(nullable = false)
+    private String password;
 
     @OneToOne(mappedBy = "user")
     private Routine routine;
@@ -37,9 +37,10 @@ public class User {
     private Character character;
 
     @Builder
-    public User(String name, String email, String birthday){
+    public User(String name, String email, String password) {
         this.name = name;
         this.email = email;
-        this.birthday = birthday;
+        this.password = password;
     }
+
 }
