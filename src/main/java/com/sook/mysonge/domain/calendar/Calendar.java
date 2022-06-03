@@ -61,9 +61,13 @@ public class Calendar {
     //@DateTimeFormat(pattern = "HH:mm")
     private LocalTime endHms; // 종료의 시, 분, 초
 
+    private double x ;
+
+    private double y;
+
     @Builder
     public Calendar(String title, String color, String location, String context,
-                    LocalDate startYmd, LocalDate endYmd, LocalTime startHms, LocalTime endHms,Long user_id) {
+                    LocalDate startYmd, LocalDate endYmd, LocalTime startHms, LocalTime endHms,Long user_id, double x, double y) {
 
         this.title = title;
         this.color = color;
@@ -74,10 +78,12 @@ public class Calendar {
         this.startHms = startHms;
         this.endHms = endHms;
         this.user_id = user_id;
+        this.x = x;
+        this.y = y;
     }
 
     public void update(String title, String color, String location, String context,
-                       LocalDate startYmd, LocalDate endYmd, LocalTime startHms, LocalTime endHms) {
+                       LocalDate startYmd, LocalDate endYmd, LocalTime startHms, LocalTime endHms, double x, double y) {
         this.title = title;
         this.color = color;
         this.context = context;
@@ -86,5 +92,7 @@ public class Calendar {
         this.endYmd = endYmd;
         this.startHms = startHms;
         this.endHms = endHms;
+        this.x = x;
+        this.y = y;
     }
 }

@@ -21,10 +21,12 @@ public class CalendarUpdateRequestDto {
     private LocalDate endYmd;
     private LocalTime startHms;
     private LocalTime endHms;
+    private double x;
+    private double y;
 
     @Builder
     public CalendarUpdateRequestDto(String title, String color, String context, String location,
-                                    LocalDate startYmd, LocalDate endYmd, LocalTime startHms, LocalTime endHms) {
+                                    LocalDate startYmd, LocalDate endYmd, LocalTime startHms, LocalTime endHms, double x, double y) {
         this.title = title;
         this.color = color;
         this.context = context;
@@ -33,6 +35,8 @@ public class CalendarUpdateRequestDto {
         this.endYmd = endYmd;
         this.startHms = startHms;
         this.endHms = endHms;
+        this.x = x;
+        this.y = y;
     }
 
 }

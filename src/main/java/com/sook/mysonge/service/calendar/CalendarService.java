@@ -27,7 +27,7 @@ public class CalendarService {
     public CalendarResponseDto update(Long id, CalendarUpdateRequestDto requestDto) {
         Calendar calendar = calendarRepository.findById(id).orElseThrow(() -> new IllegalArgumentException());
         calendar.update(requestDto.getTitle(), requestDto.getColor(), requestDto.getContext(), requestDto.getLocation(),
-                requestDto.getStartYmd(), requestDto.getEndYmd(), requestDto.getStartHms(), requestDto.getEndHms());
+                requestDto.getStartYmd(), requestDto.getEndYmd(), requestDto.getStartHms(), requestDto.getEndHms(), requestDto.getX(), requestDto.getY());
         return new CalendarResponseDto(calendar);
     }
 

@@ -22,11 +22,12 @@ public class CalendarSaveRequestDto {
     private LocalTime startHms;
     private LocalTime endHms;
     private Long user_id;
-
+    private double x;
+    private double y;
 
     @Builder
     public CalendarSaveRequestDto(String title, String color, String context, String location,
-                                  LocalDate startYmd, LocalDate endYmd, LocalTime startHms, LocalTime endHms, Long user_id) {
+                                  LocalDate startYmd, LocalDate endYmd, LocalTime startHms, LocalTime endHms, Long user_id, double x, double y) {
         this.title = title;
         this.color = color;
         this.context = context;
@@ -36,6 +37,8 @@ public class CalendarSaveRequestDto {
         this.startHms = startHms;
         this.endHms = endHms;
         this.user_id = user_id;
+        this.x = x;
+        this.y = y;
     }
 
     public Calendar toEntity() {
@@ -48,6 +51,8 @@ public class CalendarSaveRequestDto {
                 .endYmd(endYmd)
                 .startHms(startHms)
                 .endHms(endHms)
+                .x(x)
+                .y(y)
                 .user_id(user_id)
                 .build();
 

@@ -20,6 +20,8 @@ public class CalendarResponseDto {
     private LocalTime startHms;
     private LocalTime endHms;
     private Long user_id;
+    private double x;
+    private double y;
 
     public CalendarResponseDto(Calendar calendar) {
         this.id = calendar.getId();
@@ -32,5 +34,7 @@ public class CalendarResponseDto {
         this.startHms = calendar.getStartHms();
         this.endHms = calendar.getEndHms();
         this.user_id = calendar.getUser_id();
+        this.x = calendar.getX();
+        this.y = calendar.getY();
     }
 }
