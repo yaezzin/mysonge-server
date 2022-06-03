@@ -30,7 +30,7 @@ public class CharacterApiController {
         return characterService.findById(id);
     }
 
-    @ApiOperation(value = "캐릭터 등록", notes = "캐릭터 등록 API")
+    @ApiOperation(value = "캐릭터 등록", notes = "캐릭터 등록 API - user id까지 추가해서")
     @PostMapping("/character")
     public CharacterResponseDto saveCharacter(@RequestBody CharacterSaveRequestDto requestDto) {
         return characterService.save(requestDto);
@@ -45,5 +45,11 @@ public class CharacterApiController {
     @GetMapping("/all/characters")
     public List<Character> getAllCharacters(){
         return characterRepository.findAll();
+    }
+
+    @ApiOperation(value = "캐릭터 조회 with user id", notes = "캐릭터 조회 API")
+    @GetMapping("/character/user/{id}")
+    public CharacterResponseDto findCharacterByUser(@PathVariable Long id) {
+        return characterService.findCharacterByUser(id);
     }
 }

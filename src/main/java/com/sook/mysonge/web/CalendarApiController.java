@@ -35,17 +35,17 @@ public class CalendarApiController {
         return calendarRepository.findAll();
     }
 
-    @GetMapping("/calendar/today")
+    @GetMapping("/calendar/today/{user}")
     @ApiOperation(value = "오늘의 일정 반환", notes = "오늘 일정 조회 API by date")
-    public List<Calendar> getEventsByDate() {
-        return calendarRepository.findBydate();
+    public List<Calendar> getEventsByDate(@PathVariable Long user) {
+        return calendarRepository.findBydate(user);
     }
 
     // 1, 2, 3.. 을 클릭하면 일정 반환하도록
-    @GetMapping("/calendar/{startYmd}")
+    @GetMapping("/calendar/{user}/{startYmd}")
     @ApiOperation(value = "날짜로 일정 조회", notes = "해당 날짜의 일정 조회 API")
-    public List<Calendar> getEventsByBeginDate(@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate startYmd) {
-        return calendarService.getAllByStartYmd(startYmd);
+    public List<Calendar> getEventsByBeginDate(@PathVariable Long user, @PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate startYmd) {
+        return calendarService.getAllByStartYmd(user, startYmd);
     }
 
     @PostMapping("/calendar")

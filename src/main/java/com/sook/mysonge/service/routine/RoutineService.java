@@ -60,13 +60,13 @@ public class RoutineService {
         return id;
     }
 
-    public List<Routine> findByDayOfWeek() { //요일로 조회
-        List<Routine> TodayRoutineBydayOfWeek = getTodayRoutineList();
+    public List<Routine> findByDayOfWeek(Long user) { //요일로 조회
+        List<Routine> TodayRoutineBydayOfWeek = getTodayRoutineList(user);
         return TodayRoutineBydayOfWeek;
     }
 
-    public String findAchievePer() { // 요일로 조회 후 성취율 반환
-        List<Routine> list = getTodayRoutineList();
+    public String findAchievePer(Long user) { // 요일로 조회 후 성취율 반환
+        List<Routine> list = getTodayRoutineList(user);
         int cnt = 0;
         double result;
 
@@ -82,14 +82,14 @@ public class RoutineService {
     }
 
 
-    private List<Routine> getTodayRoutineList() {
+    private List<Routine> getTodayRoutineList(Long user) {
         // calendar 유틸로 요일 받아오기 일: 1, 월:2, 화:3, 수:4, 목: 5, 금: 6, 토:7
         Calendar calendar = Calendar.getInstance();
 
         // 요일 받아옴
         int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
 
-        List<Routine> routineList = routineRepository.findAll(); // 모든 루틴 찾아옴
+        List<Routine> routineList = routineRepository.findRoutineByUser(user); // 모든 루틴 찾아옴
         List<Routine> findRoutine = new ArrayList<>();
 
         for(Routine r : routineList) {

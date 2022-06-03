@@ -11,6 +11,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -48,17 +49,17 @@ public class RoutineApiController {
         routineService.delete(id);
         return id;
     }
-    @GetMapping("/routine/today")
+    @GetMapping("/routine/today/{user}")
     @ApiOperation(value = "오늘의 루틴 조회", notes = "오늘 요일에 맞는 루틴 조회 API")
-    public List<Routine> getTodayRoutine() {
-        List<Routine> byDate = routineService.findByDayOfWeek();
+    public List<Routine> getTodayRoutine(@PathVariable Long user) {
+        List<Routine> byDate = routineService.findByDayOfWeek(user);
         return byDate;
     }
 
-    @GetMapping("/routine/achieve")
+    @GetMapping("/routine/achieve/{user}")
     @ApiOperation(value = "루틴 수행 정도(%) 조회", notes = "루틴 수행 percentage 조회 API")
-    public String getAcheive() {
-        String achievePer = routineService.findAchievePer();
+    public String getAcheive(@PathVariable Long user) {
+        String achievePer = routineService.findAchievePer(user);
         return achievePer;
     }
 
