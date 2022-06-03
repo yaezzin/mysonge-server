@@ -19,6 +19,7 @@ public class CalendarResponseDto {
     private LocalDate endYmd;
     private LocalTime startHms;
     private LocalTime endHms;
+    private Long user_id;
 
     public CalendarResponseDto(Calendar calendar) {
         this.id = calendar.getId();
@@ -30,5 +31,6 @@ public class CalendarResponseDto {
         this.endYmd = calendar.getEndYmd();
         this.startHms = calendar.getStartHms();
         this.endHms = calendar.getEndHms();
+        this.user_id = calendar.getUser_id();
     }
 }

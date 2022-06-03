@@ -17,9 +17,12 @@ public class Character {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(fetch =FetchType.LAZY)
-    @JoinColumn(name = "user_id",  referencedColumnName = "id")
-    private User user;
+//    @OneToOne(fetch =FetchType.LAZY)
+//    @JoinColumn(name = "user_id",  referencedColumnName = "id")
+//    private User user;
+
+    @Column(nullable = false)
+    private Long user_id;
 
     @Column(nullable = false)
     private String name;
@@ -28,9 +31,10 @@ public class Character {
     private String quote;
 
     @Builder
-    public Character(String name, String quote) {
+    public Character(String name, String quote, Long user_id) {
         this.name = name;
         this.quote = quote;
+        this.user_id = user_id;
     }
 
     public void update(String name, String quote) {

@@ -27,9 +27,12 @@ public class Calendar {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(fetch =FetchType.LAZY)
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User user;
+//    @OneToOne(fetch =FetchType.LAZY)
+//    @JoinColumn(name = "user_id", referencedColumnName = "id")
+//    private User user;
+
+    @Column(nullable = false)
+    private Long user_id;
 
     @Column(nullable = false)
     private String title;
@@ -60,7 +63,7 @@ public class Calendar {
 
     @Builder
     public Calendar(String title, String color, String location, String context,
-                    LocalDate startYmd, LocalDate endYmd, LocalTime startHms, LocalTime endHms,User user) {
+                    LocalDate startYmd, LocalDate endYmd, LocalTime startHms, LocalTime endHms,Long user_id) {
 
         this.title = title;
         this.color = color;
@@ -70,7 +73,7 @@ public class Calendar {
         this.endYmd = endYmd;
         this.startHms = startHms;
         this.endHms = endHms;
-        this.user = user;
+        this.user_id = user_id;
     }
 
     public void update(String title, String color, String location, String context,

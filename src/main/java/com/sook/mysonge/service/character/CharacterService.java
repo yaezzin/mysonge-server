@@ -34,4 +34,9 @@ public class CharacterService {
         return new CharacterResponseDto(findCharacter);
     }
 
+
+    public CharacterResponseDto findCharacterByUser(Long user_id) {
+        Character findCharacter = characterRepository.findCharacterByUser(user_id);
+        return new CharacterResponseDto(findCharacter);
+    }
 }

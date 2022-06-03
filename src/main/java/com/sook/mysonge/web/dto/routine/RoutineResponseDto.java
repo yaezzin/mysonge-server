@@ -19,6 +19,7 @@ public class RoutineResponseDto {
     private LocalTime routineTime;
     private String context;
     private Boolean achieve;
+    private Long user_id;
 
     public RoutineResponseDto(Routine entity){
         this.id = entity.getId();
@@ -33,5 +34,6 @@ public class RoutineResponseDto {
         this.routineTime = entity.getRoutineTime();
         this.context = entity.getContext();
         this.achieve = entity.getAchieve();
+        this.user_id = entity.getUser_id();
     }
 }

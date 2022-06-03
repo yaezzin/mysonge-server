@@ -21,9 +21,12 @@ public class Routine {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(fetch =FetchType.LAZY)
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User user;
+//    @OneToOne(fetch =FetchType.LAZY)
+//    @JoinColumn(name = "user_id", referencedColumnName = "id")
+//    private User user;
+
+    @Column(nullable = false)
+    private Long user_id;
 
     @Column(nullable = false)
     private String name;
@@ -62,7 +65,7 @@ public class Routine {
 
     @Builder
     public Routine(String name, int sunday, int monday, int tuesday, int wednesday, int thursday, int friday,
-                   int saturday, LocalTime routineTime, String context, Boolean achieve, User user){
+                   int saturday, LocalTime routineTime, String context, Boolean achieve, Long user_id){
         this.name = name;
         this.sunday = sunday;
         this.monday = monday;
@@ -74,7 +77,7 @@ public class Routine {
         this.routineTime = routineTime;
         this.context = context;
         this.achieve = achieve;
-        this.user = user;
+        this.user_id = user_id;
     }
 
     // 루틴 내용 수정

@@ -36,8 +36,8 @@ public class CalendarService {
         calendarRepository.delete(calendar);
     }
 
-    public List<Calendar> getAllByStartYmd(LocalDate startYmd) {
-        return calendarRepository.findAllByStartYmd(startYmd);
+    public List<Calendar> getAllByStartYmd(Long user, LocalDate startYmd) {
+        return calendarRepository.findAllByStartYmd(user, startYmd);
     }
 
 }

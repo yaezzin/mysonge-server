@@ -27,14 +27,14 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @OneToOne(mappedBy = "user")
-    private Routine routine;
+//    @OneToOne(mappedBy = "user")
+//    private Routine routine;
 
-    @OneToOne(mappedBy = "user")
-    private Calendar calendar;
+//    @OneToOne(mappedBy = "user")
+//    private Calendar calendar;
 
-    @OneToOne(mappedBy = "user")
-    private Character character;
+//    @OneToOne(mappedBy = "user")
+//    private Character character;
 
     @Builder
     public User(String name, String email, String password) {

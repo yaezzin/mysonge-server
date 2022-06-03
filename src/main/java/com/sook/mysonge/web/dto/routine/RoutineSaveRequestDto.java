@@ -21,10 +21,11 @@ public class RoutineSaveRequestDto {
     private LocalTime routineTime;
     private String context;
     private Boolean achieve;
+    private Long user_id;
 
     @Builder
     public RoutineSaveRequestDto(String name, int sunday, int monday, int tuesday, int wednesday, int thursday, int friday,
-                                 int saturday, LocalTime routineTime, String context, Boolean achieve){
+                                 int saturday, LocalTime routineTime, String context, Boolean achieve, Long user_id){
         this.name = name;
         this.sunday = sunday;
         this.monday = monday;
@@ -36,6 +37,7 @@ public class RoutineSaveRequestDto {
         this.routineTime = routineTime;
         this.context = context;
         this.achieve = achieve;
+        this.user_id = user_id;
     }
 
     public Routine toEntity(){
@@ -51,6 +53,7 @@ public class RoutineSaveRequestDto {
                 .routineTime(routineTime)
                 .context(context)
                 .achieve(achieve)
+                .user_id(user_id)
                 .build();
     }
 }
